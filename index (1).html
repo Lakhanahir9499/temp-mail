@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temp Mail</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="live-overlay">Temp Mail</h1>
+
+        <div class="button-container">
+            <button onclick="generateEmail()" class="btn">Generate Email</button>
+            <button onclick="checkInbox()" class="btn">Check Inbox</button>
+            <button onclick="copyEmail()" class="btn copy-btn">Copy</button>
+        </div>
+
+        <p>Email: <span id="email">Not Generated</span></p>
+
+        <div id="inbox"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

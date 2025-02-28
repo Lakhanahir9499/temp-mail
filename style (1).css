@@ -1,0 +1,94 @@
+/* 📌 Background Lightning Effect */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: black;
+    color: white;
+    overflow: hidden;
+}
+
+/* 📌 Lightning Overlay */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.gifer.com/7plA.gif') no-repeat center center;
+    background-size: cover;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+/* 📌 Live Overlay Effect for Title */
+.live-overlay {
+    font-size: 2rem;
+    text-align: center;
+    background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: glow 1s infinite alternate;
+}
+
+/* 📌 Glowing Animation */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #ff00ff, 0 0 10px #00ffff;
+    }
+    to {
+        text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+    }
+}
+
+/* 📌 Center Container */
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* 📌 Buttons Styling */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn {
+    background: linear-gradient(45deg, #ff0000, #ff8000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
+    background-size: 400% 400%;
+    animation: gradientShift 5s infinite alternate;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+/* 📌 Copy Button */
+.copy-btn {
+    background: white;
+    color: black;
+}
+
+/* 📌 Inbox Messages */
+.email {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px auto;
+    width: 80%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* 📌 Gradient Animation */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
