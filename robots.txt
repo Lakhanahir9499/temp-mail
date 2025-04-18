@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tempmail.modverse.online/sitemap.xml
