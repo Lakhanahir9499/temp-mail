@@ -1,58 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- SEO Meta Tags -->
-    <title>Temp Mail - Free Disposable Email Generator | No Signup Needed</title>
-    <meta name="description" content="Free Temp Mail - Instantly generate temporary email addresses for anonymous and secure use. No registration needed." />
-    <meta name="keywords" content="temp mail, tempmail, tempmail.modverse, modverse, temp mail modverse, tempmail, temp mail, temporary mail, disposable mail, temporary email, disposable email, free email, anonymous email, email generator" />
-    <meta name="robots" content="index, follow" />
-    <meta name="author" content="Modverse" />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Temp Mail - Free Disposable Email" />
-    <meta property="og:description" content="Use tempmail.modverse.online to create free temporary emails instantly. Protect your inbox from spam." />
-    <meta property="og:url" content="https://tempmail.modverse.online" />
-    <meta property="og:type" content="website" />
-
-    <!-- Twitter -->
-    <meta name="twitter:title" content="Temp Mail - Free Disposable Email" />
-    <meta name="twitter:description" content="Create temporary emails instantly. No signup, no spam. Just temp mail." />
-
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M0GCTF0XHX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-M0GCTF0XHX');
-    </script>
-
-    <!-- Schema.org Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Temp Mail",
-      "url": "https://tempmail.modverse.online",
-      "description": "Free Temporary Email Generator",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Modverse"
-      }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temp Mail - Free Disposable Email Generator | No Signup Needed</title>
+  <meta name="description" content="Free Temp Mail - Instantly generate temporary email addresses for anonymous and secure use. No registration needed." />
+  <meta name="keywords" content="temp mail, tempmail, tempmail.modverse, modverse, temp mail modverse, tempmail, temp mail, temporary mail, disposable mail, temporary email, disposable email, free email, anonymous email, email generator" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Modverse" />
+  <meta property="og:title" content="Temp Mail - Free Disposable Email" />
+  <meta property="og:description" content="Use tempmail.modverse.online to create free temporary emails instantly. Protect your inbox from spam." />
+  <meta property="og:url" content="https://tempmail.modverse.online" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:title" content="Temp Mail - Free Disposable Email" />
+  <meta name="twitter:description" content="Create temporary emails instantly. No signup, no spam. Just temp mail." />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M0GCTF0XHX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M0GCTF0XHX');
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Temp Mail",
+    "url": "https://tempmail.modverse.online",
+    "description": "Free Temporary Email Generator",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Modverse"
     }
-    </script>
+  }
+  </script>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
 
-    <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css" />
-
-    <style>
-        .header {
+    .header {
       background: rgba(0, 0, 0, 0.9);
       padding: 1rem;
       position: fixed;
@@ -60,8 +50,16 @@
       top: 0;
       z-index: 1000;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
+    }
+
+    .header-inner {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .menu-icon {
@@ -75,8 +73,11 @@
       font-weight: bold;
       color: var(--primary);
       animation: glow 1.5s infinite alternate;
+      text-align: center;
+      flex: 1;
     }
-        .side-menu {
+
+    .side-menu {
       position: fixed;
       top: 0;
       left: -250px;
@@ -106,13 +107,29 @@
       text-decoration: none;
       display: block;
     }
-        
-    </style>
+
+    .container {
+      padding-top: 100px; /* Push content below fixed header */
+      text-align: center;
+    }
+
+    .button-container {
+      margin-top: 20px;
+    }
+
+    .btn {
+      margin: 10px;
+      padding: 10px 20px;
+    }
+  </style>
 </head>
 <body>
-    <header class="header">
-    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
-    <div class="logo">TEMP MAIL</div>
+  <header class="header">
+    <div class="header-inner">
+      <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+      <div class="logo">TEMP MAIL</div>
+      <div style="width: 28px;"></div> <!-- Placeholder to balance flex layout -->
+    </div>
   </header>
 
   <nav id="sideMenu" class="side-menu">
@@ -122,63 +139,57 @@
       <li><a href="https://tempmail.modverse.online/">Tempmail</a></li>
     </ul>
   </nav>
-    
-    <canvas id="bgCanvas" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>
 
-    <div class="container">
-        
+  <canvas id="bgCanvas" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>
 
-        <div class="button-container">
-            <button onclick="generateEmail()" class="btn">Generate Email</button>
-            <button onclick="checkInbox()" class="btn">Check Inbox</button>
-            <button onclick="copyEmail()" class="btn copy-btn">Copy</button>
-        </div>
-
-        <p>Email: <span id="email">Not Generated</span></p>
-
-        <div id="inbox"></div>
+  <div class="container">
+    <div class="button-container">
+      <button onclick="generateEmail()" class="btn">Generate Email</button>
+      <button onclick="checkInbox()" class="btn">Check Inbox</button>
+      <button onclick="copyEmail()" class="btn copy-btn">Copy</button>
     </div>
+    <p>Email: <span id="email">Not Generated</span></p>
+    <div id="inbox"></div>
+  </div>
 
-    <script src="script.js"></script>
-     <!-- Menu toggle -->
+  <script src="script.js"></script>
   <script>
     function toggleMenu() {
       document.getElementById("sideMenu").classList.toggle("open");
     }
   </script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("bgCanvas"), alpha: true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  camera.position.z = 5;
-
-  const particles = new THREE.BufferGeometry();
-  const particleCount = 500;
-  const positions = new Float32Array(particleCount * 3);
-  for (let i = 0; i < particleCount * 3; i++) {
-    positions[i] = (Math.random() - 0.5) * 10;
-  }
-
-  particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  const material = new THREE.PointsMaterial({ color: 0x6c5ce7, size: 0.05 });
-  const particleSystem = new THREE.Points(particles, material);
-  scene.add(particleSystem);
-
-  function animate() {
-    requestAnimationFrame(animate);
-    particleSystem.rotation.y += 0.002;
-    renderer.render(scene, camera);
-  }
-  animate();
-
-  window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("bgCanvas"), alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-  });
-</script>
+    camera.position.z = 5;
+
+    const particles = new THREE.BufferGeometry();
+    const particleCount = 500;
+    const positions = new Float32Array(particleCount * 3);
+    for (let i = 0; i < particleCount * 3; i++) {
+      positions[i] = (Math.random() - 0.5) * 10;
+    }
+
+    particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const material = new THREE.PointsMaterial({ color: 0x6c5ce7, size: 0.05 });
+    const particleSystem = new THREE.Points(particles, material);
+    scene.add(particleSystem);
+
+    function animate() {
+      requestAnimationFrame(animate);
+      particleSystem.rotation.y += 0.002;
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
 </body>
 </html>
