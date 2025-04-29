@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy - ModVerse</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    .header {
+      background: rgba(0, 0, 0, 0.9);
+      padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .menu-icon {
+      position: absolute;
+      left: 20px;
+      font-size: 28px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #00adb5;
+      animation: glow 1.5s infinite alternate;
+      text-align: center;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #00adb5, 0 0 10px #00adb5;
+      }
+      to {
+        text-shadow: 0 0 20px #00adb5, 0 0 30px #00adb5;
+      }
+    }
+
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #111;
+      padding-top: 60px;
+      transition: left 0.3s ease;
+      z-index: 999;
+    }
+
+    .side-menu.open {
+      left: 0;
+    }
+
+    .side-menu ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .side-menu li {
+      padding: 15px 20px;
+    }
+
+    .side-menu li a {
+      color: white;
+      text-decoration: none;
+      display: block;
+    }
+
+    .contact-container {
+      max-width: 800px;
+      margin: 120px auto 50px auto;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #00adb5;
+    }
+
+    .contact-container h1 {
+      text-align: center;
+      color: #00adb5;
+      margin-bottom: 20px;
+    }
+
+    .contact-info p {
+      margin: 10px 0;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    canvas#bgCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    <div class="logo">MODVERSE</div>
+  </header>
+
+  <nav id="sideMenu" class="side-menu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="https://tempmail.modverse.online/">Tempmail</a></li>
+    </ul>
+  </nav>
+
+  <canvas id="bgCanvas"></canvas>
+
+  <div class="contact-container">
+    <h1>Privacy Policy</h1>
+    <div class="contact-info">
+      <p><strong>Effective Date:</strong> April 29, 2025</p>
+      
+      <p>At ModVerse, we are committed to protecting your privacy and ensuring a safe experience on our platform. This Privacy Policy outlines how we collect, use, and protect your personal information.</p>
+
+      <p><strong>Information We Collect:</strong></p>
+      <p>We may collect limited information such as:</p>
+      <ul>
+        <li>Telegram usernames or IDs (for bot interaction)</li>
+        <li>Temporary email addresses generated via our services</li>
+        <li>Device information (browser, IP address) for analytics and security</li>
+      </ul>
+
+      <p><strong>How We Use Your Information:</strong></p>
+      <ul>
+        <li>To provide you with services such as temporary mail and referral programs</li>
+        <li>To improve our platform based on anonymous analytics</li>
+        <li>To communicate updates or important changes</li>
+      </ul>
+
+      <p><strong>Data Security:</strong></p>
+      <p>We use secure methods to store and handle data. However, no platform is completely immune to threats. We recommend not sharing sensitive information via our temporary mail services.</p>
+
+      <p><strong>Third-Party Services:</strong></p>
+      <p>We may use third-party APIs such as Mail.tm for temp mail. These services have their own privacy policies, and we encourage users to review them.</p>
+
+      <p><strong>User Rights:</strong></p>
+      <ul>
+        <li>You can request deletion of your user data by contacting us via Telegram.</li>
+        <li>You are not required to provide personal information to use basic services.</li>
+      </ul>
+
+      <p><strong>Contact:</strong> For any concerns regarding privacy, please reach out via <a href="https://t.me/lakhan_lakhnotra" target="_blank">@lakhan_lakhnotra</a> or our <a href="https://t.me/modverse_online" target="_blank">official Telegram channel</a>.</p>
+
+      <p>We reserve the right to update this Privacy Policy at any time. Changes will be reflected on this page.</p>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("sideMenu").classList.toggle("open");
+    }
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("bgCanvas"), alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.position.z = 5;
+
+    const particles = new THREE.BufferGeometry();
+    const particleCount = 500;
+    const positions = new Float32Array(particleCount * 3);
+    for (let i = 0; i < particleCount * 3; i++) {
+      positions[i] = (Math.random() - 0.5) * 10;
+    }
+
+    particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const material = new THREE.PointsMaterial({ color: 0x6c5ce7, size: 0.05 });
+    const particleSystem = new THREE.Points(particles, material);
+    scene.add(particleSystem);
+
+    function animate() {
+      requestAnimationFrame(animate);
+      particleSystem.rotation.y += 0.002;
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>
