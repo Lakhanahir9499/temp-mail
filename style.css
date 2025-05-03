@@ -4,7 +4,9 @@ body {
     font-family: Arial, sans-serif;
     background: black;
     color: white;
-    overflow: hidden;
+    overflow-x: hidden;  /* only hide horizontal overflow */
+    overflow-y: auto;     /* enable vertical scrolling */
+    min-height: 100vh;
 }
 
 /* 📌 Lightning Overlay */
