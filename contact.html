@@ -3,19 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact - Temp Mail</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Contact Us - TempMail ModVerse</title>
+  <meta name="description" content="Contact TempMail ModVerse for support or inquiries about our temporary email service.">
+  <meta name="keywords" content="TempMail, Temporary Email, Contact, Support, ModVerse">
+  <meta name="author" content="ModVerse" />
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <style>
-    body {
+    :root {
+      --primary: #6c5ce7;
+      --secondary: #a8a5e6;
+      --dark: #0a0a0a;
+      --light: #ffffff;
+    }
+
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
-      color: white;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: var(--dark);
+      color: var(--light);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     .header {
       background: rgba(0, 0, 0, 0.9);
-      padding: 1rem 2rem;
+      padding: 1rem;
       position: fixed;
       width: 100%;
       top: 0;
@@ -25,28 +44,19 @@
       align-items: center;
     }
 
-    .menu-icon {
-      position: absolute;
-      left: 20px;
-      font-size: 28px;
-      cursor: pointer;
-      color: white;
-    }
-
     .logo {
       font-size: 24px;
       font-weight: bold;
-      color: #00adb5;
+      color: var(--primary);
       animation: glow 1.5s infinite alternate;
-      text-align: center;
     }
 
     @keyframes glow {
       from {
-        text-shadow: 0 0 5px #00adb5, 0 0 10px #00adb5;
+        text-shadow: 0 0 5px var(--primary), 0 0 10px var(--secondary);
       }
       to {
-        text-shadow: 0 0 20px #00adb5, 0 0 30px #00adb5;
+        text-shadow: 0 0 10px var(--primary), 0 0 20px var(--secondary);
       }
     }
 
@@ -81,97 +91,125 @@
       display: block;
     }
 
-    .contact-container {
-      max-width: 700px;
-      margin: 120px auto 50px auto;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 20px #00adb5;
-    }
-
-    .contact-container h1 {
-      text-align: center;
-      color: #00adb5;
-      margin-bottom: 20px;
-    }
-
-    .contact-info p {
-      margin: 10px 0;
-      font-size: 16px;
-    }
-
-    .contact-info a {
-      color: #00fff5;
-      text-decoration: none;
-    }
-
-    canvas#bgCanvas {
+    canvas {
       position: fixed;
       top: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
       z-index: -1;
+    }
+
+    main {
+      flex: 1;
+      padding: 100px 20px 40px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .contact-box {
+      background: #1c1c1c;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(108, 92, 231, 0.4);
+    }
+
+    .contact-box p {
+      margin-bottom: 0.8rem;
+    }
+
+    strong {
+      color: var(--secondary);
+    }
+
+    a {
+      color: var(--secondary);
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: var(--light);
+      background: #111;
+    }
+
+    .menu-icon {
+      position: absolute;
+      left: 1rem;
+      font-size: 28px;
+      cursor: pointer;
+      color: var(--light);
     }
   </style>
 </head>
 <body>
   <header class="header">
     <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
-    <div class="logo">TEMP MAIL</div>
+    <div class="logo">TempMail</div>
   </header>
 
   <nav id="sideMenu" class="side-menu">
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="https://www.modverse.online/">Modverse</a></li>
+      <li><a href="https://www..modverse.online">Modverse</a></li>
       <li><a href="https://lakhan.modverse.online/">About</a></li>
-      <li><a href="privecy.html">Privacy Policy</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="terms.html">Terms of Service</a></li>
     </ul>
   </nav>
 
   <canvas id="bgCanvas"></canvas>
 
-  <div class="contact-container">
+  <main>
     <h1>Contact Us</h1>
-    <div class="contact-info">
-      <p><strong>Telegram Channel:</strong> <a href="https://t.me/modverse_online" target="_blank">https://t.me/modverse_online</a></p>
-      <p><strong>Telegram ID:</strong> <a href="https://t.me/lakhan_lakhnotra" target="_blank">@lakhan_lakhnotra</a></p>
-      <p><strong>Email (Support):</strong> support@modverse.online</p>
+    <div class="contact-box">
+      <p><strong>Telegram Channel:</strong> <a href="https://t.me/modverse_online">https://t.me/modverse_online</a></p>
+      <p><strong>Telegram ID:</strong> <a href="https://t.me/lakhan_lakhnotra">@lakhan_lakhnotra</a></p>
+      <p><strong>Email (Support):</strong> <a href="mailto:support@modverse.online">support@modverse.online</a></p>
       <p><strong>Location:</strong> India (Remote Support)</p>
       <p><strong>Availability:</strong> Mon–Sat, 10AM – 6PM IST</p>
     </div>
-  </div>
-
-  <script>
-    function toggleMenu() {
-      document.getElementById("sideMenu").classList.toggle("open");
-    }
-  </script>
+  </main>
 
   <footer>
-    <p>&copy; 2025 ModVerse. All rights reserved.</p>
+    <p>&copy; 2025 TempMail ModVerse. All rights reserved.</p>
   </footer>
-  
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script>
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("bgCanvas"), alpha: true });
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
+    const renderer = new THREE.WebGLRenderer({
+      canvas: document.getElementById("bgCanvas"),
+      alpha: true,
+    });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    camera.position.z = 5;
+    document.body.appendChild(renderer.domElement);
 
     const particles = new THREE.BufferGeometry();
-    const particleCount = 500;
+    const particleCount = 400;
     const positions = new Float32Array(particleCount * 3);
     for (let i = 0; i < particleCount * 3; i++) {
       positions[i] = (Math.random() - 0.5) * 10;
     }
 
-    particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    particles.setAttribute("position", new THREE.BufferAttribute(positions, 3));
     const material = new THREE.PointsMaterial({ color: 0x6c5ce7, size: 0.05 });
     const particleSystem = new THREE.Points(particles, material);
     scene.add(particleSystem);
+
+    camera.position.z = 5;
 
     function animate() {
       requestAnimationFrame(animate);
@@ -179,12 +217,12 @@
       renderer.render(scene, camera);
     }
     animate();
+  </script>
 
-    window.addEventListener('resize', () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    });
+  <script>
+    function toggleMenu() {
+      document.getElementById("sideMenu").classList.toggle("open");
+    }
   </script>
 </body>
 </html>
