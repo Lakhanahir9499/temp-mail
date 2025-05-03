@@ -29,6 +29,11 @@ html {
     overflow-x: hidden;
     overflow-y: auto;
 }
+footer {
+      text-align: center;
+      padding: 1rem;
+      color: var(--light);
+}
 
 
 
