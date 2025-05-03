@@ -21,6 +21,13 @@ body::before {
     background-size: cover;
     opacity: 0.3;
     z-index: -1;
+    pointer-events: none; /* THIS allows clicks and scroll to pass through */
+}
+html {
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 
