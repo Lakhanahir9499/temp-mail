@@ -40,6 +40,8 @@
     body {
       margin: 0;
       font-family: sans-serif;
+      background-color: #000;
+      color: #fff;
     }
 
     .header {
@@ -109,7 +111,7 @@
     }
 
     .container {
-      padding-top: 100px; /* Push content below fixed header */
+      padding-top: 100px;
       text-align: center;
     }
 
@@ -121,6 +123,29 @@
       margin: 10px;
       padding: 10px 20px;
     }
+
+    section {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      line-height: 1.6;
+      color: #fff;
+      text-align: left;
+    }
+
+    section h2, section h3 {
+      color: #6c5ce7;
+    }
+
+    section ul {
+      padding-left: 20px;
+    }
+
+    section a {
+      color: #6c5ce7;
+    }
   </style>
 </head>
 <body>
@@ -128,19 +153,18 @@
     <div class="header-inner">
       <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
       <div class="logo">TEMP MAIL</div>
-      <div style="width: 28px;"></div> <!-- Placeholder to balance flex layout -->
+      <div style="width: 28px;"></div>
     </div>
   </header>
 
   <nav id="sideMenu" class="side-menu">
     <ul>
-      <li><a href="index.html">Home</a></li>
+      <li><a href="#home">Home</a></li>
       <li><a href="https://www.modverse.online/">Modverse</a></li>
       <li><a href="https://lakhan.modverse.online/">About</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="privacy.html">Privacy Policy</a></li>
       <li><a href="terms.html">Terms of Service</a></li>
-      
     </ul>
   </nav>
 
@@ -156,6 +180,29 @@
     <div id="inbox"></div>
   </div>
 
+  <!-- SEO and AdSense friendly content -->
+  <section>
+    <h2>Welcome to Temp Mail by Modverse</h2>
+    <p>
+      Temp Mail by Modverse is a free temporary email service designed to help users keep their personal inbox clean and private. Whether you're signing up for a website, downloading software, or joining a forum, use our temporary email to stay anonymous and avoid spam.
+    </p>
+
+    <h3>Why Choose Us?</h3>
+    <ul>
+      <li>Completely free to use</li>
+      <li>Instant email generation</li>
+      <li>No signup or personal data required</li>
+      <li>Mobile-friendly and lightweight interface</li>
+    </ul>
+
+    <h3>About Modverse</h3>
+    <p>
+      Modverse is a project by <strong>Lakhan Ahir</strong>, a young developer from India focused on creating open, secure, and easy-to-use web utilities. Our goal is to offer fast and ad-free services that are helpful for developers, students, and general users.
+    </p>
+
+    <p>Contact us at: <a href="mailto:contact@modverse.online">contact@modverse.online</a></p>
+  </section>
+
   <script src="script.js"></script>
   <script>
     function toggleMenu() {
@@ -163,8 +210,6 @@
     }
   </script>
 
-  
-  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script>
     const scene = new THREE.Scene();
