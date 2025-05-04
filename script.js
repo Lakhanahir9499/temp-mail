@@ -1,4 +1,4 @@
- const domainAPI = "https://api.mail.tm/domains";
+const domainAPI = "https://api.mail.tm/domains";
 const accountAPI = "https://api.mail.tm/accounts";
 const tokenAPI = "https://api.mail.tm/token";
 const messagesAPI = "https://api.mail.tm/messages";
@@ -70,12 +70,13 @@ async function checkInbox() {
             let emailBody = emailData.html ? emailData.html.join(" ") : emailData.text;
 
             inboxDiv.innerHTML += `
-    <div class="email-card">
-        <p><strong>From:</strong> ${msg.from.address}</p>
-        <p><strong>Subject:</strong> ${msg.subject}</p>
-        <div class="email-body">${emailBody}</div>
-    </div>
-`;
+                <div class="email">
+                    <p><b>From:</b> ${msg.from.address}</p>
+                    <p><b>Subject:</b> ${msg.subject}</p>
+                    <p><b>Message:</b> ${emailBody}</p>
+                </div>
+                <hr>
+            `;
         }
     }
 }
@@ -89,13 +90,3 @@ function copyEmail() {
     navigator.clipboard.writeText(userEmail);
     alert("Email copied to clipboard!");
 }
-function showCustomAlert(message) {
-    const alertBox = document.getElementById("customAlert");
-    const alertText = document.getElementById("customAlertText");
-    alertText.innerText = message;
-    alertBox.classList.remove("hidden");
-    setTimeout(() => {
-        alertBox.classList.add("hidden");
-    }, 3000);
-}
-
