@@ -90,6 +90,13 @@ function copyEmail() {
     navigator.clipboard.writeText(userEmail);
     alert("Email copied to clipboard!");
 }
+// sw.js file
+self.addEventListener('install', (event) => {
+  event.waitUntil(self.skipWaiting());
+});
+self.addEventListener('activate', (event) => {
+  event.waitUntil(self.clients.claim());
+});
 document.addEventListener('DOMContentLoaded', function() {
   const audio = document.getElementById('bgMusic');
   const muteButton = document.getElementById('muteBtn');
