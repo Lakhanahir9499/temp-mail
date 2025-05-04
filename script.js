@@ -1,4 +1,4 @@
-const domainAPI = "https://api.mail.tm/domains";
+ const domainAPI = "https://api.mail.tm/domains";
 const accountAPI = "https://api.mail.tm/accounts";
 const tokenAPI = "https://api.mail.tm/token";
 const messagesAPI = "https://api.mail.tm/messages";
@@ -70,13 +70,12 @@ async function checkInbox() {
             let emailBody = emailData.html ? emailData.html.join(" ") : emailData.text;
 
             inboxDiv.innerHTML += `
-                <div class="email">
-                    <p><b>From:</b> ${msg.from.address}</p>
-                    <p><b>Subject:</b> ${msg.subject}</p>
-                    <p><b>Message:</b> ${emailBody}</p>
-                </div>
-                <hr>
-            `;
+    <div class="email-card">
+        <p><strong>From:</strong> ${msg.from.address}</p>
+        <p><strong>Subject:</strong> ${msg.subject}</p>
+        <div class="email-body">${emailBody}</div>
+    </div>
+`;
         }
     }
 }
