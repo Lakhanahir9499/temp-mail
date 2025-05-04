@@ -156,8 +156,7 @@
 </head>
 <body>
 
-<button id="mute-btn" class="btn">Mute</button>
-  
+
   <header class="header">
     <div class="header-inner">
       <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
@@ -168,7 +167,7 @@
 
   <nav id="sideMenu" class="side-menu">
     <ul>
-      <li><a href="#home">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="https://www.modverse.online/">Modverse</a></li>
       <li><a href="https://lakhan.modverse.online/">About</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -253,6 +252,14 @@
       renderer.setSize(window.innerWidth, window.innerHeight);
     });
   </script>
+  <audio id="background-music" autoplay loop muted>
+  <source src="your-song.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<div id="music-toggle" class="music-icon">
+  <span id="icon">🔇</span>
+</div>
   <footer>
     <p>&copy; 2025 TempMail. All rights reserved.</p>
   </footer>
