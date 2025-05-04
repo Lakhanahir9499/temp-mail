@@ -89,4 +89,13 @@ function copyEmail() {
     navigator.clipboard.writeText(userEmail);
     alert("Email copied to clipboard!");
 }
+function showCustomAlert(message) {
+    const alertBox = document.getElementById("customAlert");
+    const alertText = document.getElementById("customAlertText");
+    alertText.innerText = message;
+    alertBox.classList.remove("hidden");
+    setTimeout(() => {
+        alertBox.classList.add("hidden");
+    }, 3000);
+}
 
