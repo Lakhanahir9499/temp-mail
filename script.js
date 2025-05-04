@@ -82,11 +82,31 @@ async function checkInbox() {
 }
 
 // 📌 Step 5: Copy Email to Clipboard
-function copyEmail() {
-    if (!userEmail) {
-        alert("No email generated yet!");
-        return;
-    }
-    navigator.clipboard.writeText(userEmail);
-    alert("Email copied to clipboard!");
+// New notification functions
+function showNotification(message) {
+  const notification = document.getElementById("customNotification");
+  document.getElementById("notificationText").textContent = message;
+  notification.style.display = "block";
 }
+
+function hideNotification() {
+  document.getElementById("customNotification").style.display = "none";
+}
+
+// Update existing functions
+async function checkInbox() {
+  if (!userToken) {
+    showNotification("No email generated yet!");
+    return;
+  }
+  // ...rest of your existing code
+}
+
+function copyEmail() {
+  if (!userEmail) {
+    showNotification("No email generated yet!");
+    return;
+  }
+  navigator.clipboard.writeText(userEmail);
+  showNotification("Email copied to clipboard!");
+  }
