@@ -123,3 +123,31 @@ footer {
     font-size: 14px;
     white-space: pre-wrap;
 }
+
+.custom-alert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(145deg, #222, #111);
+  color: #fff;
+  padding: 20px 30px;
+  border-radius: 12px;
+  font-size: 16px;
+  z-index: 9999;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  text-align: center;
+  max-width: 80%;
+  animation: fadeInOut 3s ease-in-out forwards;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translate(-50%, -60%); }
+  10% { opacity: 1; transform: translate(-50%, -50%); }
+  90% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%, -40%); }
+}
