@@ -255,7 +255,22 @@
   </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
   <script>
+    const music = document.getElementById("background-music");
+    const icon = document.getElementById("icon");
+    const toggle = document.getElementById("music-toggle");
+
+    toggle.addEventListener("click", () => {
+      if (music.muted) {
+        music.muted = false;
+        music.play();
+        icon.textContent = "🔊";
+      } else {
+        music.muted = true;
+        icon.textContent = "🔇";
+      }
+    });
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("bgCanvas"), alpha: true });
@@ -285,22 +300,6 @@
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-  </script>
-  <script>
-    const music = document.getElementById("background-music");
-    const icon = document.getElementById("icon");
-    const toggle = document.getElementById("music-toggle");
-
-    toggle.addEventListener("click", () => {
-      if (music.muted) {
-        music.muted = false;
-        music.play();
-        icon.textContent = "🔊";
-      } else {
-        music.muted = true;
-        icon.textContent = "🔇";
-      }
     });
   </script>
   <!-- Background Music -->
