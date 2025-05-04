@@ -90,3 +90,58 @@ function copyEmail() {
     navigator.clipboard.writeText(userEmail);
     alert("Email copied to clipboard!");
 }
+// नए फ़ंक्शन जोड़ें
+function showNotification(message, isError = false) {
+  const notification = document.getElementById("customNotification");
+  const textElement = document.getElementById("notificationText");
+  
+  textElement.textContent = message;
+  textElement.style.color = isError ? "#ff4444" : "#00ffaa";
+  notification.style.display = "block";
+  
+  setTimeout(() => {
+    notification.style.display = "none";
+  }, 3000);
+}
+
+function hideNotification() {
+  document.getElementById("customNotification").style.display = "none";
+}
+
+// मौजूदा फ़ंक्शन अपडेट करें:
+
+// generateEmail फ़ंक्शन में बदलाव
+async function generateEmail() {
+  try {
+    document.getElementById("email").textContent = "Generating...";
+    
+    // ... आपका मौजूदा कोड ...
+    
+    // सफलता नोटिफिकेशन
+    showNotification("✅ Email generated successfully!");
+    
+  } catch (error) {
+    document.getElementById("email").textContent = "Not Generated";
+    showNotification(`❌ Error: ${error.message}`, true);
+  }
+}
+
+// checkInbox फ़ंक्शन में बदलाव
+async function checkInbox() {
+  if (!userToken) {
+    showNotification("⚠️ Please generate email first!", true);
+    return;
+  }
+  // ... बाकी कोड ...
+}
+
+// copyEmail फ़ंक्शन में बदलाव
+function copyEmail() {
+  if (!userEmail) {
+    showNotification("⚠️ No email to copy!", true);
+    return;
+  }
+  navigator.clipboard.writeText(userEmail)
+    .then(() => showNotification("📧 Copied to clipboard!"))
+    .catch(() => showNotification("❌ Failed to copy", true));
+}
