@@ -43,6 +43,24 @@
 <link rel="manifest" href="/site.webmanifest" />
   <link rel="stylesheet" href="style.css" />
   <style>
+     /* Mute/Unmute Button Styling */
+    #music-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 12px;
+      border-radius: 50%;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 9999;
+      transition: background 0.3s;
+    }
+
+    #music-toggle:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
     body {
       margin: 0;
       font-family: sans-serif;
@@ -269,6 +287,31 @@
       renderer.setSize(window.innerWidth, window.innerHeight);
     });
   </script>
+  <script>
+    const music = document.getElementById("background-music");
+    const icon = document.getElementById("icon");
+    const toggle = document.getElementById("music-toggle");
+
+    toggle.addEventListener("click", () => {
+      if (music.muted) {
+        music.muted = false;
+        music.play();
+        icon.textContent = "🔊";
+      } else {
+        music.muted = true;
+        icon.textContent = "🔇";
+      }
+    });
+  </script>
+  <!-- Background Music -->
+  <audio id="background-music" autoplay loop muted>
+    <source src="your-song.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <!-- Mute/Unmute Button -->
+  <div id="music-toggle">
+    <span id="icon">🔇</span>
+  </div>
   
   <footer>
     <p>&copy; 2025 TempMail. All rights reserved.</p>
