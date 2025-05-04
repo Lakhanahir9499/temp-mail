@@ -82,14 +82,7 @@ async function checkInbox() {
 }
 
 // 📌 Step 5: Copy Email to Clipboard
-function copyEmail() {
-    if (!userEmail) {
-        alert("No email generated yet!");
-        return;
-    }
-    navigator.clipboard.writeText(userEmail);
-    alert("Email copied to clipboard!");
-}
+
 // नए फ़ंक्शन जोड़ें
 function showNotification(message, isError = false) {
   const notification = document.getElementById("customNotification");
