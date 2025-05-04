@@ -83,23 +83,6 @@ async function checkInbox() {
 
 // 📌 Step 5: Copy Email to Clipboard
 
-// नए फ़ंक्शन जोड़ें
-function showNotification(message, isError = false) {
-  const notification = document.getElementById("customNotification");
-  const textElement = document.getElementById("notificationText");
-  
-  textElement.textContent = message;
-  textElement.style.color = isError ? "#ff4444" : "#00ffaa";
-  notification.style.display = "block";
-  
-  setTimeout(() => {
-    notification.style.display = "none";
-  }, 3000);
-}
-
-function hideNotification() {
-  document.getElementById("customNotification").style.display = "none";
-}
 
 // मौजूदा फ़ंक्शन अपडेट करें:
 
@@ -109,31 +92,63 @@ async function generateEmail() {
     document.getElementById("email").textContent = "Generating...";
     
     // ... आपका मौजूदा कोड ...
+      if (!userEmail) {
+    showNotification("No email to copy!", true);
+    return;
+}
+navigator.clipboard.writeText(userEmail)
+    .then(() => showNotification("Email copied to clipboard!"))
+    .catch(() => showNotification("Failed to copy", true));
     
     // सफलता नोटिफिकेशन
     showNotification("✅ Email generated successfully!");
+   // Notification Functions
+function showNotification(message, isError = false) {
+    const notification = document.getElementById("customNotification");
+    const textElement = document.getElementById("notificationText");
     
+    // रंग सेट करें
+    textElement.style.color = isError ? "#ff5555" : "#00ffaa";
+    textElement.textContent = message;
+    
+    // एनिमेशन शुरू करें
+    notification.style.display = "block";
+    setTimeout(() => {
+        notification.style.display = "none";
+    }, 3000);
+}
+
+function hideNotification() {
+    document.getElementById("customNotification").style.display = "none";
+} 
   } catch (error) {
     document.getElementById("email").textContent = "Not Generated";
     showNotification(`❌ Error: ${error.message}`, true);
   }
 }
 
-// checkInbox फ़ंक्शन में बदलाव
+// सभी alert() को showNotification() से बदलें
 async function checkInbox() {
-  if (!userToken) {
-    showNotification("⚠️ Please generate email first!", true);
-    return;
-  }
-  // ... बाकी कोड ...
+    if (!userToken) {
+        // ❌ पुराना कोड: alert("No email generated yet!");
+        // ✅ नया कोड:
+        showNotification("⚠️ पहले ईमेल जनरेट करें!", true);
+        return;
+    }
+    // ... बाकी कोड
 }
 
-// copyEmail फ़ंक्शन में बदलाव
 function copyEmail() {
-  if (!userEmail) {
-    showNotification("⚠️ No email to copy!", true);
-    return;
-  }
+    if (!userEmail) {
+        // ❌ पुराना कोड: alert("No email generated yet!");
+        // ✅ नया कोड:
+        showNotification("❌ कोई ईमेल नहीं बना है!", true);
+        return;
+    }
+    navigator.clipboard.writeText(userEmail)
+        .then(() => showNotification("📧 क्लिपबोर्ड पर कॉपी हो गया!"))
+        .catch(() => showNotification("❌ कॉपी नहीं हो पाया", true));
+}
   navigator.clipboard.writeText(userEmail)
     .then(() => showNotification("📧 Copied to clipboard!"))
     .catch(() => showNotification("❌ Failed to copy", true));
