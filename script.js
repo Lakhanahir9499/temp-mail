@@ -90,18 +90,3 @@ function copyEmail() {
     navigator.clipboard.writeText(userEmail);
     alert("Email copied to clipboard!");
 }
-document.addEventListener("DOMContentLoaded", function () {
-    const music = document.getElementById("background-music");
-    const icon = document.getElementById("icon");
-
-    document.getElementById("music-toggle").addEventListener("click", function () {
-        if (music.muted) {
-            music.muted = false;
-            music.play();
-            icon.textContent = "🔊";
-        } else {
-            music.muted = true;
-            icon.textContent = "🔇";
-        }
-    });
-});
