@@ -90,3 +90,17 @@ function copyEmail() {
     navigator.clipboard.writeText(userEmail);
     alert("Email copied to clipboard!");
 }
+document.addEventListener('DOMContentLoaded', function() {
+  const audio = document.getElementById('bgMusic');
+  const muteButton = document.getElementById('muteBtn');
+
+  // Autoplay muted music
+  audio.muted = true;
+  audio.play().catch(error => console.log('Autoplay prevented'));
+
+  // Mute/Unmute button functionality
+  muteButton.addEventListener('click', function() {
+    audio.muted = !audio.muted;
+    muteButton.textContent = audio.muted ? '🔇' : '🔊';
+  });
+});
