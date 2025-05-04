@@ -93,14 +93,35 @@ function copyEmail() {
 document.addEventListener('DOMContentLoaded', function() {
   const audio = document.getElementById('bgMusic');
   const muteButton = document.getElementById('muteBtn');
+  
+  // Mobile devices ke liye special handling
+  let isFirstInteraction = true;
+  
+  // User interaction ke baad hi music start kare
+  function handleFirstInteraction() {
+    if(isFirstInteraction) {
+      audio.play().catch(error => console.log('Playback failed'));
+      isFirstInteraction = false;
+    }
+  }
 
-  // Autoplay muted music
+  // Kisi bhi user interaction pe trigger kare
+  document.addEventListener('click', handleFirstInteraction);
+  document.addEventListener('touchstart', handleFirstInteraction);
+  document.addEventListener('keydown', handleFirstInteraction);
+
+  // Initial setup
   audio.muted = true;
-  audio.play().catch(error => console.log('Autoplay prevented'));
+  audio.loop = true;
 
-  // Mute/Unmute button functionality
+  // Mute/Unmute functionality
   muteButton.addEventListener('click', function() {
     audio.muted = !audio.muted;
     muteButton.textContent = audio.muted ? '🔇' : '🔊';
+    
+    // Unmute hote hi play ensure kare
+    if(!audio.muted && audio.paused) {
+      audio.play().catch(error => console.log('Playback failed'));
+    }
   });
 });
