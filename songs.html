@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Music Player</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: black;
+      color: white;
+      font-family: sans-serif;
+      overflow: hidden;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0; left: 0;
+      z-index: -1;
+    }
+
+    .player {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .title {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .controls {
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #00ffff33;
+      border: 1px solid #00ffff99;
+      color: white;
+      border-radius: 8px;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #00ffff55;
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="bgCanvas"></canvas>
+
+  <div class="player">
+    <div class="title" id="songTitle">Loading...</div>
+    <audio id="audio" controls autoplay></audio>
+    <div class="controls">
+      <button onclick="prevSong()">Prev</button>
+      <button onclick="nextSong()">Next</button>
+    </div>
+  </div>
+
+  <script>
+    const songs = [
+      { title: "Song 1", url: "https://youtu.be/nTNcwrNNMlo" },
+      { title: "Song 2", url: "https://youtu.be/PWcxi8hup_w" },
+      { title: "Song 3", url: "https://your-link-or-github-song-3.mp3" }
+    ];
+
+    let current = 0;
+    const audio = document.getElementById('audio');
+    const title = document.getElementById('songTitle');
+
+    function loadSong(index) {
+      const song = songs[index];
+      audio.src = song.url;
+      title.innerText = song.title;
+      audio.play();
+    }
+
+    function nextSong() {
+      current = (current + 1) % songs.length;
+      loadSong(current);
+    }
+
+    function prevSong() {
+      current = (current - 1 + songs.length) % songs.length;
+      loadSong(current);
+    }
+
+    audio.addEventListener('ended', nextSong);
+    window.onload = () => loadSong(current);
+  </script>
+
+  <script>
+    // Basic animated background (can be replaced with Three.js)
+    const canvas = document.getElementById("bgCanvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const stars = Array(100).fill().map(() => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 2,
+      d: Math.random() * 0.5 + 0.5
+    }));
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "rgba(0,255,255,0.2)";
+      stars.forEach(s => {
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fill();
+        s.y += s.d;
+        if (s.y > canvas.height) {
+          s.y = 0;
+          s.x = Math.random() * canvas.width;
+        }
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+</body>
+</html>
